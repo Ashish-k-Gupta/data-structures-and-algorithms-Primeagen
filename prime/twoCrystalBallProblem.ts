@@ -1,21 +1,18 @@
-export default function two_crystal_balls(breaks: boolean[]): number{
-    let jumpAmount = Math.floor(Math.sqrt(breaks.length));
+export default function two_crystal_ball(building: boolean[]): number {
+    let jumpSize = Math.floor(Math.sqrt(building.length));
 
-    let i = jumpAmount;
-    for(; i < breaks.length; i += jumpAmount){
-        if(breaks[i]){
-            true;
+    let i = jumpSize;
+    for(; i < building.length; i += jumpSize){
+        if(building[i]){
+            break;
         }
     }
 
-    i = i - jumpAmount;
-
-    for(let j = 0; j < jumpAmount && i < breaks.length; ++j, ++i){
-        if(breaks[i]){
+    i -= jumpSize;
+    for(let j = 0; j < jumpSize && i < building.length; ++j, ++i){
+        if(building[i]){
             return i;
         }
     }
-
     return -1;
-
-}
+} 
